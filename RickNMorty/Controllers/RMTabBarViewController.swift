@@ -11,7 +11,6 @@ final class RMTabBarViewController: UITabBarController, UITabBarControllerDelega
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.view.backgroundColor = .cyan
         setupTabs()
     }
     private func setupTabs(){
