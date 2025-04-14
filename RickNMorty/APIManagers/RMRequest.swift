@@ -11,14 +11,17 @@ final class RMRequest {
     private struct Constants{
         static let baseURLString = "https://rickandmortyapi.com/api"
     }
+    
     private var endpoint : Endpoints
     private var paths : [String]
     private var queryParams : [URLQueryItem]
+    
     init(endpoint: Endpoints, paths: [String], queryParams: [URLQueryItem]) {
         self.endpoint = endpoint
         self.paths = paths
         self.queryParams = queryParams
     }
+    
     private var finalUrlString : String {
         var urlString = Constants.baseURLString
         urlString += "/"
@@ -38,11 +41,15 @@ final class RMRequest {
         }
         return urlString
     }
+    
     private var url: URL?{
         return URL(string: finalUrlString)
     }
-    private func RequestBuilder() -> URLRequest {
-        var request : URLRequest!
-         return request
+    public func requestBuilder(with url:URL?)->URLRequest {
+        guard let url = self.url else {
+            return URLRequest(url: URL(string: "")!)
+        }
+        return URLRequest(url: url)
     }
 }
+
