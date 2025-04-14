@@ -7,8 +7,8 @@
 
 import Foundation
 
-@frozen public enum ENdpoints {
-    case character
-    case location
-    case episode
+@frozen public enum Endpoints : String {
+    case character = "character"
+    case location = "location"
+    case episode = "episode"
 }
